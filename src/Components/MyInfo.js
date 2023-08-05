@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import userContext from '../Context/userContext'
 import { useNavigate } from 'react-router-dom'
+import {BASE_URL} from '../helper.js'
 const MyInfo = (props) => {
     const navigate=useNavigate()
     const [loggedUser, setLoggedUser] = useState({
@@ -9,7 +10,7 @@ const MyInfo = (props) => {
     })
 
     const getUser = async () => {
-        const response = await fetch("http://localhost:5000/api/auth/getuser", {
+        const response = await fetch(`${BASE_URL}/api/auth/getuser`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -21,7 +22,7 @@ const MyInfo = (props) => {
     }
 
     const deleteAcc= async()=>{
-        const response = await fetch("http://localhost:5000/api/auth/deleteuser", {
+        const response = await fetch(`${BASE_URL}/api/auth/deleteuser`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
