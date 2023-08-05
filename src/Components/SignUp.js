@@ -8,7 +8,7 @@ const SignUp = (props) => {
 
   const handleSignup = async (e) => {
     e.preventDefault()
-    if (password != cpassword) {
+    if (password !== cpassword) {
       props.showAlert("danger","Please check Confirm Password")
 
     }
@@ -23,12 +23,10 @@ const SignUp = (props) => {
       const json = await response.json()
       if (json.success) {
         localStorage.setItem('token', json.authtoken)
-        navigate('/home')
+        navigate('/')
         props.showAlert("success","Signed Up In successfully")
-        console.log(json)
       }
       else {
-        console.log(json)
         props.showAlert("success",json.message)      }
     }
   }

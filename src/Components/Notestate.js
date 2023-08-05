@@ -34,7 +34,6 @@ const Notestate = (props) => {
 
   const editNote = async (id, title, description, tag) => {
     // API CALL
-    console.log("In edit")
     const response = await fetch(`http://localhost:5000/api/note/updatenote/${id}`, {
       method: "PUT",
       headers: {
@@ -44,8 +43,7 @@ const Notestate = (props) => {
 
       body: JSON.stringify({title,description,tag})
     });
-    const json= await response.json()
-    console.log(json)
+    await response.json()
     let newNotes=JSON.parse(JSON.stringify(notes))
     for (let index = 0; index < newNotes.length; index++) {
       const element = newNotes[index];
