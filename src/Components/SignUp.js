@@ -27,7 +27,7 @@ const SignUp = (props) => {
         props.showAlert("success","Signed Up In successfully")
       }
       else {
-        props.showAlert("success",json.message)      }
+        props.showAlert("danger",json.message)      }
     }
   }
 
